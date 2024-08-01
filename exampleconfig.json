@@ -1,0 +1,20 @@
+{
+  "Zone ID Entity Skin": {
+     "97306637":{
+         "Entity Skins":[
+         {
+            "Entity Name":"rug.deployed",
+            "Skin ID":2945082884
+         },
+         {
+            "Entity Name":"fridge.deployed",
+            "Skin ID":1968311805
+         },
+         {
+            "Entity Name":"computerstation.deployed",
+            "Skin ID":5636746104
+         }
+        ]
+     }
+  }
+}
