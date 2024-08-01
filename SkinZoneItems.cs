@@ -33,16 +33,16 @@ namespace Oxide.Plugins
 		private class EntitySkin 
 		{	
 			[JsonProperty(PropertyName = "Entity Name")]
-            public string EntityName { get; set; }
+                        public string EntityName { get; set; }
 			
 			[JsonProperty(PropertyName = "Skin ID")]
-            public ulong SkinId { get; set; }
+                        public ulong SkinId { get; set; }
 		}
 		
 		private class EntitySkins
 		{	
 			[JsonProperty(PropertyName = "Entity Skins")]
-            public List<EntitySkin> EntitySkinList  { get; set; }
+                        public List<EntitySkin> EntitySkinList  { get; set; }
 		}
 
         protected override void LoadConfig()
@@ -102,6 +102,4 @@ namespace Oxide.Plugins
 
         #endregion
     }
-	
-	
 }
