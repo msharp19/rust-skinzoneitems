@@ -75,29 +75,28 @@ namespace Oxide.Plugins
             {
                 var zones = ZoneManager.Call<string[]>("GetZoneIDs");
 
-				foreach(var zoneKey in _config.ZoneEntitySkins.Keys)
-				{
-				   _config.ZoneEntitySkins.TryGetValue(zoneKey, out var entitySkins);
-				   var zoneEntitySkins = entitySkins?.EntitySkinList ?? new List<EntitySkin>();
+		foreach(var zoneKey in _config.ZoneEntitySkins.Keys)
+		{
+		    _config.ZoneEntitySkins.TryGetValue(zoneKey, out var entitySkins);
+		   var zoneEntitySkins = entitySkins?.EntitySkinList ?? new List<EntitySkin>();
 		
-				   var allZoneEntities = ZoneManager.Call<List<BaseEntity>>("GetEntitiesInZone", zoneKey);
+		   var allZoneEntities = ZoneManager.Call<List<BaseEntity>>("GetEntitiesInZone", zoneKey);
 	
-				   foreach(var skinEntity in zoneEntitySkins)
-				   {
-				      var entitiesToUpdate = allZoneEntities.Where(x => x.ShortPrefabName == skinEntity.EntityName).ToList();
-	
-	                  Puts($"Updating {entitiesToUpdate.Count()} skin/s for entity: {skinEntity.EntityName}");
+		   foreach(var skinEntity in zoneEntitySkins)
+		   {
+			var entitiesToUpdate = allZoneEntities.Where(x => x.ShortPrefabName == skinEntity.EntityName).ToList();
+	                Puts($"Updating {entitiesToUpdate.Count()} skin/s for entity: {skinEntity.EntityName}");
 					  
-					  foreach(var entityToUpdate in entitiesToUpdate)
-					  {
-						  if (entityToUpdate is BaseEntity entity)
-						  {
-							 entity.skinID = skinEntity.SkinId;
-							 entity.SendNetworkUpdate();
-						  }
-					  }
-				   }
-				}
+			foreach(var entityToUpdate in entitiesToUpdate)
+			{
+			   if (entityToUpdate is BaseEntity entity)
+			   {
+				entity.skinID = skinEntity.SkinId;
+				entity.SendNetworkUpdate();
+		           }
+			}
+		   }
+		}
             }
         }
 
