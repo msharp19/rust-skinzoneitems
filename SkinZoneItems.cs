@@ -24,19 +24,19 @@ namespace Oxide.Plugins
         private Configuration _config;
 
         private class Configuration
-		{
-			[JsonProperty(PropertyName = "Zone ID Entity Skin")]
-			public Dictionary<string, List<EntitySkin>> ZoneEntitySkins { get; set; }
-		}
+	{
+	    [JsonProperty(PropertyName = "Zone ID Entity Skin")]
+	    public Dictionary<string, List<EntitySkin>> ZoneEntitySkins { get; set; }
+	}
 
-		private class EntitySkin 
-		{	
-			[JsonProperty(PropertyName = "Entity Name")]
-			public string EntityName { get; set; }
+	private class EntitySkin 
+	{	
+	    [JsonProperty(PropertyName = "Entity Name")]
+	    public string EntityName { get; set; }
 			
-			[JsonProperty(PropertyName = "Skin ID")]
-			public ulong SkinId { get; set; }
-		}
+	    [JsonProperty(PropertyName = "Skin ID")]
+	    public ulong SkinId { get; set; }
+	}
 
         protected override void LoadConfig()
         {
